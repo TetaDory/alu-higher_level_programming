@@ -10,7 +10,7 @@ if __name__ == '__main__':
             print("{} arguments:".format(args_number))
         i = 1
         for args in argv[1:]:
-            print("{}: {}".format(i, args))      
-            i += 1        
-    else:
-        print("{} arguments.".format(args_number))
+            print("{}: {}" .format(i,args))
+            i +=1
+        else:
+           print("{} arguments. ".format(args_number)
