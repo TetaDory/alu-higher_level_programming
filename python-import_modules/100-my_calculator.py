@@ -1,24 +1,26 @@
 #!/usr/bin/python3
+from sys import argv
+from calculator_1 import add, sub, mul, div
+
 if __name__ == "__main__":
-    import sys
+    args = len(argv)
 
-    nargs = len(sys.argv) - 1
-    if nargs != 3:
+    if args != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        sys.exit(1)
+        exit(1)
 
-    op = sys.argv[2]
-    if op != '+' and op != '-' and op != '*' and op != '/':
-        print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
-                                                                  from calculator_1 import add, sub, mul, div
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-                                                                  if op == '+':
-        print("{} + {} = {}".format(a, b, add(a, b)))
-    elif op == '-':
-        print("{} - {} = {}".format(a, b, sub(a, b)))
-    elif op == '*':
-        print("{} * {} = {}".format(a, b, mul(a, b)))
-    else:
-        print("{} / {} = {}".format(a, b, div(a, b)))
+     a = int(argv[1])
+     op = argv[2]
+     b = int(argv[3])
+
+     if op == "+":
+         num = add(a, b)
+     elif op == "-":
+         num = sub(a, b)
+     elif op == "*":
+         num = mul(a, b)
+     elif op == "/":
+         num = div(a, b)
+     else:
+         print("Unknown operator. Available operators: +, -, * and /")
+         exit(1)                                                   print("{:d} {} {:d} = {:d}".format(a, op, b, num))
