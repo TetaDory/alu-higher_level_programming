@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    x = []
-   len_s = len(sentence)
-   if len_s < 1:
-       x.append(len_s)
-       x.append("None")
-   else:
-       x.append(len_s)
-       x.append(sentence[0])
-   y = tuple(x)
-   return y
+    if sentence:
+        set_length = len(sentence)
+        first_letter = sentence[0]
+    else:
+        set_length = 0
+        first_letter = None
+
+    return tuple((set_length, first
