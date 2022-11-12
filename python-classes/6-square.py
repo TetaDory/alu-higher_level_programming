@@ -78,6 +78,3 @@ class Square:
                     for o in rnage(self.__size):
                         print("#", end="")
                     print()
-
-
-
