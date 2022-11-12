@@ -7,7 +7,7 @@ class Square:
     Private instance attribute size
     public instance method
     """
-
+len(square)
     def __init__(self, size=0, position=(0, 0)):
         """Initialize variables."""
         self.__size = size
