@@ -2,7 +2,7 @@
 """Define a square"""
 
 
-class Square.size:
+class Square:
     """
     Creates a square.
     """
@@ -21,7 +21,7 @@ class Square.size:
         def size(self, size):
             """size to a size."""
             if not isinstance(size, int):
-                raise TyperError("size must be an integer")
+                raise TypeError("size must be an integer")
             elif size < 0:
                 raise ValueError("size must be >= 0")
             self.__size = size
