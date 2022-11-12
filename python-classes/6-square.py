@@ -2,7 +2,7 @@
 """Define a square"""
 
 
-class Square:
+class Square.size:
     """
     Creates a square.
     """
