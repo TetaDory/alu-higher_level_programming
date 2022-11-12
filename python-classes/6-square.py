@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Define a square"""
+'''Creating a square'''
 
 
 class Square:
     """
-        square with private instance attribute: 'size'
+    Creates a square.
     """
 
     def __init__(self, size=0, position=(0, 0)):
