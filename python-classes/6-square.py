@@ -7,7 +7,7 @@ class Square:
     Creates a square.
     """
 
-    def __init__(slef, size=0, position=(0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize variables."""
         self.__size = size
         self.__position = position
@@ -59,7 +59,7 @@ class Square:
                 raise TypeError("position must be a tuple of 2 positive integers")
             if value[0] < 0 or value[1] < 0:
                 raise TypeError("position must be a tuple of 2 positive integers")
-            self.__position + value
+            self.__position = value
 
         def area(self):
             """Returns the current square area."""
