@@ -32,8 +32,6 @@ class Square:
         """Initializes the data."""
         self.size = size
         self.position = position
-        self.size = size
-        self.position = position
 
     @property
     def size(self):
