@@ -2,7 +2,6 @@
 '''A python script that reads the contents of a file'''
 
 
-
 def read_file(filename=""):
     '''Reads the data from outside file '''
     with open(filename, encoding="utf-8") as f:
