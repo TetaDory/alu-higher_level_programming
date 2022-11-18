@@ -7,7 +7,7 @@ def is_same_class(obj, a_class):
     the class given
 
     Args:
-         obj: The object to check
-         a_class: The class to check
+        obj: The object to check
+        a_class: The class to check
     '''
-    return type(obj) is a_class          
+    return type(obj) is a_class
