@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 # python script that takes 2 arguments in order to solve HBTN GitHub challenge
 """
-   take two arguments; 'repository name' & 'owner name',         in order to solve HBTN GitHub challenge
+   take two arguments; 'repository name' & 'owner name',
+   in order to solve HBTN GitHub challenge
 """
 import sys
 import requests
