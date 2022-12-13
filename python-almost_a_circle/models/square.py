@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""Create a Square class"""
+"""Creating class square"""
 
 
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Create a Square class that
-    inherits from the Rectangle class"""
+    """Creating square class that
+    inherits from rectangle class"""
     def __init__(self, size, x=0, y=0, id=None):
         """Defining a function that initializes the
         attributes"""
@@ -21,14 +21,15 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        """efining a function that sets
-        the size of the square"""
+        """Defining a function that sets
+        the size"""
         self.width = value
         self.height = value
 
     def __str__(self):
-    """Return string representation"""
-    
+        """Defining a function that returns
+        the string representation of the square"""
+        
     return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
     def update(self, *args, **kwargs):
