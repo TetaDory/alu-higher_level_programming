@@ -82,7 +82,7 @@ class Base:
         for instance_dict in ex_content:
             context_list.append(cls.create(**instance_dict))
         return context_list
-        
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """ Function to save to a CSV file """
