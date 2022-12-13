@@ -1,16 +1,18 @@
 #!/usr/bin/python3
-"""Creating a class Base"""
-
+"""A base class"""
 
 import json
+import turtle
+import csv
 
 
 class Base:
-    """Creating a Base class Base"""
+    """Attributes: id number"""
+    
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Attributes: id number"""
+        """Function that Initialize a new id"""
         if id is not None:
             self.id = id
         else:
@@ -19,8 +21,8 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Defining a function that
-        returns the JSON string of list_dictionaries"""
+        """Defining a function that 
+        converts a list of dictionaries to a JSON string"""
         if list_dictionaries is None:
             return "[]"
 
@@ -32,20 +34,20 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Defining a function that writes the
-         JSON string  of list_objs to a file"""
-        file = cls.__name__ + ".json"
+        JSON string representation of list_objs to a file"""
+        file_name = cls.__name__ + ".json"
         new_list = []
         if list_objs:
             for i in list_objs:
                 new_list.append(cls.to_dictionary(i))
 
-        with open(file, mode="w") as myFile:
+        with open(file_name, mode="w") as myFile:
             myFile.write(cls.to_json_string(new_list))
 
     @staticmethod
     def from_json_string(json_string):
         """Defining a function that
-        returns the JSON string list representation of json_string"""
+        converts a JSON string to a list of dictionaries"""
         if json_string is None:
             return []
 
@@ -58,7 +60,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Defining a function  that returns
-        an instance with all the attributes  that are set"""
+        an instance with all attributes set"""
         if cls.__name__ == "Rectangle":
             dummy = cls(3, 2)
         if cls.__name__ == "Square":
@@ -81,3 +83,60 @@ class Base:
         for instance_dict in ex_content:
             context_list.append(cls.create(**instance_dict))
         return context_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Function that saves to a CSV file """
+        fn = cls.__name__ + ".csv"
+        if fn == "Rectangle.csv":
+            fields = ["id", "width", "height", "x", "y"]
+        else:
+            fields = ["id", "size", "x", "y"]
+        with open(fn, mode="w", newline="") as myFile:
+            if list_objs is None:
+                writer = csv.writer(myFile)
+                writer.writerow([[]])
+            else:
+                writer = csv.DictWriter(myFile, fieldnames=fields)
+                writer.writeheader()
+                for x in list_objs:
+                    writer.writerow(x.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Function that loads from a CSV file """
+        try:
+            fn = cls.__name__ + ".csv"
+            with open(fn, newline="") as myFile:
+                reader = csv.DictReader(myFile)
+                lst = []
+                for x in reader:
+                    for i, n in x.items():
+                        x[i] = int(n)
+                    lst.append(x)
+                return ([cls.create(**objt) for objt in lst])
+        except FileNotFoundError:
+            return ([])
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Function that draws the rectangles and squares """
+        shapes = []
+        if list_rectangles:
+            shapes.extend(list_rectangles)
+        if list_squares:
+            shapes.extend(list_squares)
+        pen = turtle.Turtle()
+        pen.pen(pencolor='black', pendown=False, pensize=2, shown=False)
+        for shape in shapes:
+            pen.penup()
+            pen.setpos(shape.x, shape.y)
+            pen.pendown()
+            pen.forward(shape.width)
+            pen.right(90)
+            pen.forward(shape.height)
+            pen.right(90)
+            pen.forward(shape.width)
+            pen.right(90)
+            pen.forward(shape.height)
+            pen.right(90)
