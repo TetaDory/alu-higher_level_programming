@@ -1,51 +1,39 @@
 #!/usr/bin/python3
-"""Create a Square class for the work"""
+"""Create a Square class"""
 
 
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Create a Square class for the work"""
+    """Create a Square class that 
+     inherits from the Rectangle class"""
     def __init__(self, size, x=0, y=0, id=None):
-        """
-        Create a Square class for the work
-        :param size: The size of the square
-        :param x: The x coordinate of the square
-        :param y: The y coordinate of the square
-        :param id: The id of the square
-        """
+        """Defining a function that initializes the
+        attributes"""
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        """
-        Return the size of the square
-        :return: The size of the square
-        """
+        """Defining a function that
+       returns the size of the square"""
         return self.width
 
     @size.setter
     def size(self, value):
-        """
-        Set the size of the square
-        :param value: The size of the square
-        """
+        """efining a function that sets
+        the size of the square"""
         self.width = value
         self.height = value
 
     def __str__(self):
-        """
-        Return the string representation of the square
-        :return: The string representation of the square
-        """
+        """Defining a function that returns
+        the string representation"""
+
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
     def update(self, *args, **kwargs):
-        """
-        Update the square
-        :return: The updated square
-        """
+        """Assigning attributes to arguments"""
         if len(args) != 0:
             try:
                 self.id = args[0]
@@ -75,8 +63,6 @@ class Square(Rectangle):
                 self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """
-        Return a dictionary representation of the square
-        :return: The dictionary representation of the square
-        """
+        """Defining a function that returns
+        a dictionary representation of a square"""
         return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
