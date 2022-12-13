@@ -21,11 +21,11 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Defining a function that 
+        """Defining a function that
         converts a list of dictionaries to a JSON string"""
         if list_dictionaries is None:
             return "[]"
-
+            
         if len(list_dictionaries) == 0:
             return "[]"
 
