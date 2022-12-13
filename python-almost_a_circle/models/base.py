@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""Creating a base class"""
+"""Creating a class Base"""
 
 
 import json
 
 
 class Base:
-    """Attributes: id number"""
+    """Creating a Base class Base"""
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Attributes: id number"""
         if id is not None:
             self.id = id
         else:
@@ -18,7 +19,8 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Define function that returns JSON string"""
+        """Defining a function that
+        returns the JSON string of list_dictionaries"""
         if list_dictionaries is None:
             return "[]"
 
@@ -26,12 +28,12 @@ class Base:
             return "[]"
 
         return json.dumps(list_dictionaries)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
-        """Defining function to write 
-        the JSON string of list_objs to a file"""
-        file_name = cls.__name__ + ".json"
+        """Defining a function that writes the
+         JSON string  of list_objs to a file"""
+        file = cls.__name__ + ".json"
         new_list = []
         if list_objs:
             for i in list_objs:
@@ -46,36 +48,36 @@ class Base:
         returns the JSON string list representation of json_string"""
         if json_string is None:
             return []
-        
-        if len(json_string == 0:
-                return []
 
-        list_dicts = jspn.loads(json_string)
+        if len(json_string) == 0:
+            return []
+
+        list_dicts = json.loads(json_string)
         return list_dicts
 
-     @classmethod
-     def create(cls, **dictionary):
-         """Defining a function  that returns 
-         an instance with all the attributes  that are set"""
-         if cls.__name__ == "Rectangle":
-             dummy = cls(3, 2)
-         if cls.__name__ == "Square":
-             dummy = cls(3)
-         dummy.update(**dictionary)
-         return dummy
+    @classmethod
+    def create(cls, **dictionary):
+        """Defining a function  that returns
+        an instance with all the attributes  that are set"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(3, 2)
+        if cls.__name__ == "Square":
+            dummy = cls(3)
+        dummy.update(**dictionary)
+        return dummy
 
-     @classmethod
-     def load_from_file(cls):
-         """Defining a function that
-         returns a list of instances"""
-         try:
-             with open(cls.__name__ + ".json", "r") as file:
-                 content = file.read()
-         except FileNotFoundError:
-             return []
-         
-         ex_content = cls.from_json_string(content)
-         context_list = []
-         for instance_dict in ex_content:
-             context_list.append(cls.create(**instance_dict))
-         return context_list
+    @classmethod
+    def load_from_file(cls):
+        """Defining a function that
+        returns a list of instances"""
+        try:
+            with open(cls.__name__ + ".json", "r") as file:
+                content = file.read()
+        except FileNotFoundError:
+            return []
+
+        ex_content = cls.from_json_string(content)
+        context_list = []
+        for instance_dict in ex_content:
+            context_list.append(cls.create(**instance_dict))
+        return contet_list
