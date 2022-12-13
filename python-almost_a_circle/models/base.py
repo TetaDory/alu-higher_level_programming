@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A base class"""
+"""Creating a base class"""
 
 import json
 import turtle
