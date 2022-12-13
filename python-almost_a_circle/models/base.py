@@ -80,4 +80,4 @@ class Base:
         context_list = []
         for instance_dict in ex_content:
             context_list.append(cls.create(**instance_dict))
-        return contet_list
+        return context_list
