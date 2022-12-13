@@ -1,5 +1,5 @@
  #!/usr/bin/python3
-"""Unit test for the base class"""
+"""Unit testing for the class base"""
 
 
 import os
@@ -10,10 +10,11 @@ from models.square import Square
 
 
 class TestBase(TestCase):
-    """The Test class for the Base class in models."""
+    """Class that tests the Base class"""
 
     def test_ba(self):
-        """Testing the starting point of creation of Base"""
+        """Function that tests the starting point 
+        of creation of Base"""
 
         base = Base()
         base_1 = Base()
@@ -23,7 +24,7 @@ class TestBase(TestCase):
         self.assertEqual(base_89.id, 89)
 
     def test_to_json_string(self):
-        """Test the converting of lists to dicts"""
+        """Function that tests the converting of lists to dicts"""
 
         self.assertEqual(Base.to_json_string(None), "[]")
         self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
@@ -31,7 +32,7 @@ class TestBase(TestCase):
         self.assertEqual(Base.to_json_string([]), "[]")
 
     def test_save_to_file(self):
-        """Test that the file saves list objects to  file"""
+        """Function that test that the file saves list objects to  file"""
 
         Base._Base__nb_objects = 0
         Square.save_to_file(None)
@@ -66,7 +67,7 @@ class TestBase(TestCase):
 
 
     def test_from_json_string(self):
-        """Test the converting of a file from JSON string representation."""
+        """Function that tests the converting of a file from JSON string representation."""
 
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string('[{"id": 89}]'), [{'id': 89}])
