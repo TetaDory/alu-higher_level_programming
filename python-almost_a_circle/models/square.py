@@ -6,8 +6,8 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Create a Square class that 
-     inherits from the Rectangle class"""
+    """Create a Square class that
+    inherits from the Rectangle class"""
     def __init__(self, size, x=0, y=0, id=None):
         """Defining a function that initializes the
         attributes"""
@@ -27,8 +27,8 @@ class Square(Rectangle):
         self.height = value
 
     def __str__(self):
-        """Defining a function that returns
-        the string representation"""
+    """Defining a function that returns
+    the string representation"""
 
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
