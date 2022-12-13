@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Test the Rectangle class"""
+"""Test the REctangle class"""
 
 import unittest
 from io import StringIO
@@ -11,11 +11,10 @@ from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
-    """Defining a class that tests for 
-    instantiation of the rectangle"""
+    """Test class for Base"""
 
     def test_instance(self):
-        """Test_instance function"""
+        """Doc"""
         Base._Base__nb_objects = 0
         rect1 = Rectangle(1, 2)
         rect2 = Rectangle(1, 2, 3)
@@ -55,12 +54,12 @@ class TestRectangle(unittest.TestCase):
             r7 = Rectangle(1, 2, 3, "4")
 
     def test_area(self):
-        """Defining a function for testing the area"""
+        """Test for the Area"""
         reactnage = Rectangle(5, 3)
         self.assertEqual(reactnage.area(), 15)
 
     def test__str__(self):
-        """Defining a function that tests for the string repo"""
+        """Test for the string repo of the rectange"""
         Base._Base__nb_objects = 0
         rectangle = Rectangle(5, 3)
         with patch("sys.stdout", new=StringIO()) as out_rectange:
@@ -69,7 +68,7 @@ class TestRectangle(unittest.TestCase):
                              "[Rectangle] (1) 0/0 - 5/3\n")
 
     def test_display(self):
-        """Define function"""
+        """Doc"""
         rect1 = Rectangle(4, 2)
         rect2 = Rectangle(4, 2, 3)
         rect3 = Rectangle(4, 2, 3, 2)
@@ -87,14 +86,14 @@ class TestRectangle(unittest.TestCase):
                              "\n\n   ####\n   ####\n")
 
     def test_to_dictionary(self):
-        """Defining the function that tests for the dictionary"""
+        """Test for the dic """
         Base._Base__nb_objects = 0
         r1 = Rectangle(4, 2)
         self.assertEqual(r1.to_dictionary(),
                          {'id': 1, 'width': 4, 'height': 2, 'x': 0, 'y': 0})
 
     def test_update(self):
-        """Defining the function that tests for the string"""
+        """test for the string"""
         Base._Base__nb_objects = 0
         r1 = Rectangle(4, 2)
 
@@ -152,7 +151,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.y, 4)
 
     def test_create(self):
-        """Defining a function that creates values for a new rectangle"""
+        """Tests to creatr a new rectangle"""
 
         r1 = Rectangle.create(**{'id': 89})
         self.assertEqual(r1.id, 89)
@@ -181,7 +180,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.y, 4)
 
     def test_save_to_file(self):
-        """Defining a function that test to save to file"""
+        """Test for the save to save to file"""
         Base._Base__nb_objects = 0
 
         Rectangle.save_to_file(None)
@@ -201,7 +200,7 @@ class TestRectangle(unittest.TestCase):
                              '"height": 2, "x": 0, "y": 0}]')
 
     def test_save_to_file_empty(self):
-        """Defining a function that tests for saving to an empty file"""
+        """Test for the saving to a an empty file"""
         Rectangle.save_to_file([])
         self.assertTrue(os.path.isfile("Rectangle.json"))
         with open("Rectangle.json") as file:
@@ -209,7 +208,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(type(file.read()), str)
 
     def test_load_from_file(self):
-        """Defining a function that tests getting a file from file"""
+        """test geting a file form file"""
         if os.path.exists("Rectangle.json"):
             os.remove("Rectangle.json")
 
