@@ -8,7 +8,6 @@ import csv
 
 class Base:
     """Attributes: id number"""
-    
     __nb_objects = 0
 
     def __init__(self, id=None):
@@ -25,7 +24,7 @@ class Base:
         converts a list of dictionaries to a JSON string"""
         if list_dictionaries is None:
             return "[]"
-            
+
         if len(list_dictionaries) == 0:
             return "[]"
 
